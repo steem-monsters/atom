@@ -15,7 +15,7 @@ import { throwIfNotAtom } from "./throwIfNotAtom";
  * @example
  * ```jsx
  *
- *import {Atom, swap} from '@libre/atom'
+ *import {Atom, swap} from '@steem-monsters/atom'
 import {prettyPrint} from './prettyPrint'
  *
  *const stateAtom = Atom.of({ count: 0 })

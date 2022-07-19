@@ -42,7 +42,7 @@ export default [
     output: {
       file: pkg.main,
       format: "umd",
-      name: "@libre/atom",
+      name: "@steem-monsters/atom",
       sourcemap: true
     },
     plugins: [...defaultConfig.plugins, tsUMD, uglify()]

@@ -3,7 +3,7 @@ module.exports = {
   excludePrivate: true,
   excludeProtected: true,
   hideGenerator: true,
-  name: "@libre/atom",
+  name: "@steem-monsters/atom",
   out: "./docs",
   theme: "default"
 };

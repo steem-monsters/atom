@@ -9,7 +9,7 @@ import { _addChangeHandler, _removeChangeHandler } from "./internal-state";
  * @example
 ```js
 
-import {Atom, addChangeHandler, swap} from '@libre/atom'
+import {Atom, addChangeHandler, swap} from '@steem-monsters/atom'
 
 const countAtom = Atom.of({ count: 0 })
 
@@ -41,7 +41,7 @@ export function addChangeHandler<S>(
  * @example
 ```js
 
-import {Atom, addChangeHandler, removeChangeHandler, swap} from '@libre/atom'
+import {Atom, addChangeHandler, removeChangeHandler, swap} from '@steem-monsters/atom'
 
 const countAtom = Atom.of({ count: 0 })
 

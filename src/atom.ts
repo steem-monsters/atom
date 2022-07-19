@@ -19,7 +19,7 @@ export class Atom<S = any> {
    * @example
 ```js
 
-import { Atom } from '@libre/atom'
+import { Atom } from '@steem-monsters/atom'
 
 const a1 = Atom.of(0)
 const a2 = Atom.of("zero")

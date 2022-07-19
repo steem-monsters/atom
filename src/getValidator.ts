@@ -12,7 +12,7 @@ import { throwIfNotAtom } from "./throwIfNotAtom";
  * @example
 ```js
 
-import {Atom, deref, getValidator, swap} from '@libre/atom'
+import {Atom, deref, getValidator, swap} from '@steem-monsters/atom'
 
 const atom = Atom.of({ count: 0 }, { validator: (state) => isEven(state.count) })
 const validator = getValidator(atom)

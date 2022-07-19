@@ -17,7 +17,7 @@ import { throwIfNotAtom } from "./throwIfNotAtom";
   * @example
 ```js
 
-import {Atom, deref, set} from '@libre/atom'
+import {Atom, deref, set} from '@steem-monsters/atom'
 
 const atom = Atom.of({ count: 0 })
 

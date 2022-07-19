@@ -15,7 +15,7 @@ import { throwIfNotAtom } from "./throwIfNotAtom";
  * @example
 ```js
 
-import {Atom, deref, setValidator, set} from '@libre/atom'
+import {Atom, deref, setValidator, set} from '@steem-monsters/atom'
 import { _setValidator } from './internal-state';
 
 const atom = Atom.of({ count: 0 }, {validator: (state) => isNumber(state.count) })
