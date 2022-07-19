@@ -1,256 +1,100 @@
-<!doctype html>
-<html class="default no-js">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>@libre/atom</title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="assets/css/main.css">
-</head>
-<body>
-<header>
-	<div class="tsd-page-toolbar">
-		<div class="container">
-			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
-					<div class="field">
-						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
-						<input id="tsd-search-field" type="text" />
-					</div>
-					<ul class="results">
-						<li class="state loading">Preparing search index...</li>
-						<li class="state failure">The search index is not available</li>
-					</ul>
-					<a href="index.html" class="title">@libre/atom</a>
-				</div>
-				<div class="table-cell" id="tsd-widgets">
-					<div id="tsd-filter">
-						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
-						<div class="tsd-filter-group">
-							<div class="tsd-select" id="tsd-filter-visibility">
-								<span class="tsd-select-label">All</span>
-								<ul class="tsd-select-list">
-									<li data-value="public">Public</li>
-									<li data-value="protected">Public/Protected</li>
-									<li data-value="private" class="selected">All</li>
-								</ul>
-							</div>
-							<input type="checkbox" id="tsd-filter-inherited" checked />
-							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-						</div>
-					</div>
-					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="tsd-page-title">
-		<div class="container">
-			<ul class="tsd-breadcrumb">
-				<li>
-					<a href="globals.html">Globals</a>
-				</li>
-			</ul>
-			<h1> @libre/atom</h1>
-		</div>
-	</div>
-</header>
-<div class="container container-main">
-	<div class="row">
-		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<div>
-					<p align="center">
-						<img
-						src="https://document-export.canva.com/DADLRIBWTFM/45/preview/0001-645846858.png"
-						height="350"
-						width="350"
-						alt="@libre/atom logo" />
-					</p>
-				</div>
-				<h3 align="center">A way to manage shared, synchronous, independent state</h3>
-				<h3 align="center">Inspired by <a href="https://clojure.org/reference/atoms">atom</a>s in <a href="https://clojure.org/index">Clojure(Script)</a></h3>
-				<div style="heigth:40px;">&nbsp;</div>
-				<p><a href="https://github.com/ellerbrock/typescript-badges/"><img src="https://badges.frapsoft.com/typescript/version/typescript-next.svg?v=101" alt="TypeScript"></a>
-					<a href="https://www.npmjs.com/package/@libre/atom"><img src="https://img.shields.io/npm/v/@libre/atom.svg" alt="npm (scoped)"></a>
-					<a href="https://bundlephobia.com/result?p=@libre/atom"><img src="https://img.shields.io/bundlephobia/min/@libre/atom.svg" alt="npm bundle size (minified)"></a>
-				<a href="https://bundlephobia.com/result?p=@libre/atom"><img src="https://img.shields.io/bundlephobia/minzip/@libre/atom.svg" alt="npm bundle size (minified + gzip)"></a></p>
-				<p><a href="https://travis-ci.com/libre-org/atom"><img src="https://travis-ci.com/libre-org/atom.svg?branch=master" alt="Build Status"></a>
-					<a href="https://codecov.io/gh/libre-org/atom"><img src="https://codecov.io/gh/libre-org/atom/branch/master/graph/badge.svg" alt="codecov"></a>
-				<a href="https://www.npmjs.com/package/@libre/atom"><img src="https://img.shields.io/npm/dt/@libre/atom.svg" alt="npm"></a></p>
-				<p><a href="https://www.npmjs.com/package/@libre/atom"><img src="https://img.shields.io/npm/l/@libre/atom.svg" alt="NpmLicense"></a>
-					<a href="http://commitizen.github.io/cz-cli/"><img src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" alt="Commitizen friendly"></a>
-				<a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="semantic-release"></a></p>
-				<h2 id="description">Description</h2>
-				<p><code>@libre/atom</code> provides a data type called <code>Atom</code>s and a few functions for working with <code>Atom</code>s. It is heavily inspired by <code>atom</code>s in Clojure(Script). While the full power of Clojure <code>atom</code>s cannot be experienced in JavaScript&#39;s single-threaded runtime, <code>Atom</code>s do still offer similar benefits due to the highly asynchronous and event-driven nature of JavaScript.</p>
-				<p>Atoms provide a predictable way to manage state shared by multiple components of a
-				program as that state changes over time. They are particularly useful in the functional and reactive programming paradigms, where most components of a program are pure functions operating on immutable data. <code>Atoms</code> provide a controlled mechanism for mutability that lets multiple components access and update the same value without risking mutating another component&#39;s reference to it in the middle of some process or asynchronous operation.</p>
-				<h3 id="put-your-state-in-an-atom-">Put your state in an <code>Atom</code>:</h3>
-				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { Atom } <span class="hljs-keyword">from</span> <span class="hljs-string">"@libre/atom"</span>;
-
-<span class="hljs-keyword">const</span> appState = Atom.of({
-  color: <span class="hljs-string">"blue"</span>,
-  userId: <span class="hljs-number">1</span>
-});</code></pre>
-				<h3 id="read-state-with-deref">Read state with <code>deref</code></h3>
-				<p>You can&#39;t inspect <code>Atom</code> state directly, you have to <code>deref</code>erence it, like this:</p>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { deref } <span class="hljs-keyword">from</span> <span class="hljs-string">"@libre/atom"</span>;
-
-<span class="hljs-keyword">const</span> { color } = deref(appState);</code></pre>
-				<h3 id="update-state-with-swap">Update state with <code>swap</code></h3>
-				<p>You can&#39;t modify an <code>Atom</code> directly. The main way to update state is with <code>swap</code>. Here&#39;s its call signature:</p>
-				<pre><code class="language-ts"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">swap</span>&lt;<span class="hljs-title">S</span>&gt;(<span class="hljs-params">
-  atom: Atom&lt;S&gt;, 
-  updateFn: (state: DeepImmutable&lt;S&gt;) =&gt; S
-</span>): <span class="hljs-title">void</span></span>;</code></pre>
-				<p><code>updateFn</code> is applied to <code>atom</code>&#39;s state and the return value is set as <code>atom</code>&#39;s new state. There are just two simple rules for <code>updateFn</code>:</p>
-				<ol>
-					<li>it must return a value of the same type/interface as the previous state</li>
-					<li>it must not mutate the previous state</li>
-				</ol>
-				<p>To illustrate, here is how we might update <code>appState</code>&#39;s color:</p>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { swap } <span class="hljs-keyword">from</span> <span class="hljs-string">"@libre/atom"</span>;
-
-<span class="hljs-keyword">const</span> setColor = <span class="hljs-function"><span class="hljs-params">color</span> =&gt;</span>
-  swap(appState, state =&gt; ({
-    ...state,
-    <span class="hljs-attr">color</span>: color
-  }));</code></pre>
-				<blockquote>
-					<p><strong>Note:</strong> Our <code>updateFn</code> is <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax">spread</a>ing the old state onto a new object before overriding <code>color</code>. This is an easy way to obey the rules of <code>updateFn</code>. If manually spreading values seems tedious, there are many libraries that offer convenient functions for operating on JS data structures in an immutable manner, e.g. see <a href="https://ramdajs.com/">ramda</a>, <a href="https://sanctuary.js.org/">sanctuary</a>, <a href="https://evilsoft.github.io/crocks/docs/">crocks</a>, or (for the wizards among us) <a href="https://gcanti.github.io/fp-ts/">fp-ts</a>.</p>
-				</blockquote>
-				<h2 id="installation">Installation</h2>
-				<p><strong>NPM</strong>: <code>npm install --save @libre/atom</code></p>
-				<p><strong>Yarn</strong>: <code>yarn add @libre/atom</code></p>
-				<p><strong>CDN</strong>: <code>&lt;script src=&quot;https://unpkg.com/@libre/atom&quot; /&gt;</code></p>
-				<ul>
-					<li>Exposed on the global object, like so: <code>window[&quot;@libre/atom&quot;]</code></li>
-				</ul>
-				<h2 id="usage">Usage</h2>
-				<p><strong>ES6 <code>import</code></strong></p>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Atom, deref, set, swap } <span class="hljs-keyword">from</span> <span class="hljs-string">"@libre/atom"</span>;</code></pre>
-				<p><strong>CommonJS <code>require</code></strong></p>
-				<pre><code class="language-js"><span class="hljs-keyword">const</span> { Atom, deref, set, swap } = <span class="hljs-built_in">require</span>(<span class="hljs-string">"@libre/atom"</span>);</code></pre>
-				<p><strong>Web <code>&lt;script /&gt;</code> tag</strong></p>
-				<pre><code class="language-js"><span class="hljs-keyword">const</span> { Atom, deref, set, swap } = <span class="hljs-built_in">window</span>[<span class="hljs-string">"@libre/atom"</span>];</code></pre>
-				<h2 id="documentation">Documentation</h2>
-				<p><a href="https://libre-org.github.io/atom/">You can find API docs for <code>@libre/atom</code> here</a></p>
-				<h2 id="contributing-feedback">Contributing / Feedback</h2>
-				<p>Please open an issue if you have any questions, suggestions for
-					improvements/features, or want to submit a PR for a bug-fix (please include
-				tests if applicable).</p>
-			</div>
-		</div>
-		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
-			<nav class="tsd-navigation primary">
-				<ul>
-					<li class="globals  ">
-						<a href="globals.html"><em>Globals</em></a>
-					</li>
-				</ul>
-			</nav>
-			<nav class="tsd-navigation secondary menu-sticky">
-				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-has-type-parameter">
-						<a href="classes/atom.html" class="tsd-kind-icon">Atom</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-has-type-parameter">
-						<a href="interfaces/atomconstructoroptions.html" class="tsd-kind-icon">Atom<wbr>Constructor<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#atomstate" class="tsd-kind-icon">Atom<wbr>State</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#deepimmutable" class="tsd-kind-icon">Deep<wbr>Immutable</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#addchangehandler" class="tsd-kind-icon">add<wbr>Change<wbr>Handler</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#deref" class="tsd-kind-icon">deref</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#getvalidator" class="tsd-kind-icon">get<wbr>Validator</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#removechangehandler" class="tsd-kind-icon">remove<wbr>Change<wbr>Handler</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#set" class="tsd-kind-icon">set</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#setvalidator" class="tsd-kind-icon">set<wbr>Validator</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#swap" class="tsd-kind-icon">swap</a>
-					</li>
-				</ul>
-			</nav>
-		</div>
-	</div>
+<!DOCTYPE html><html class="default"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>@steem-monsters/atom</title><meta name="description" content="Documentation for @steem-monsters/atom"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.body.classList.add(localStorage.getItem("tsd-theme") || "os")</script><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">@steem-monsters/atom</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><h1>@steem-monsters/atom </h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><div class="tsd-panel tsd-typography"><div>
+  <p align="center">
+    <img 
+      src="https://document-export.canva.com/DADLRIBWTFM/45/preview/0001-645846858.png"
+      height="350"
+      width="350"
+      alt="@steem-monsters/atom logo" />
+  </p>
 </div>
-<footer>
-	<div class="container">
-		<h2>Legend</h2>
-		<div class="tsd-legend-group">
-			<ul class="tsd-legend">
-				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
-				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
-				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
-				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
-				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
-				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
-				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
-				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
-				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
-			</ul>
-		</div>
-	</div>
-</footer>
-<div class="overlay"></div>
-<script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
-</body>
-</html>
+
+<h3 align="center">A way to manage shared, synchronous, independent state</h3>
+
+<h3 align="center">Inspired by <a href="https://clojure.org/reference/atoms">atom</a>s in <a href="https://clojure.org/index">Clojure(Script)</a></h3>
+
+<h3 align="center">Forked from <a href="https://github.com/libre-org/atom">@libre/atom</a></h3>
+
+<div style="heigth:40px;">&nbsp;</div>
+
+<p><a href="https://github.com/ellerbrock/typescript-badges/"><img src="https://badges.frapsoft.com/typescript/version/typescript-next.svg?v=101" alt="TypeScript"></a>
+<a href="https://www.npmjs.com/package/@steem-monsters/atom"><img src="https://img.shields.io/npm/v/@steem-monsters/atom.svg" alt="npm (scoped)"></a>
+<a href="https://bundlephobia.com/result?p=@steem-monsters/atom"><img src="https://img.shields.io/bundlephobia/min/@steem-monsters/atom.svg" alt="npm bundle size (minified)"></a>
+<a href="https://bundlephobia.com/result?p=@steem-monsters/atom"><img src="https://img.shields.io/bundlephobia/minzip/@steem-monsters/atom.svg" alt="npm bundle size (minified + gzip)"></a></p>
+<p><a href="https://www.npmjs.com/package/@steem-monsters/atom"><img src="https://img.shields.io/npm/dt/@steem-monsters/atom.svg" alt="npm"></a></p>
+<p><a href="https://www.npmjs.com/package/@steem-monsters/atom"><img src="https://img.shields.io/npm/l/@steem-monsters/atom.svg" alt="NpmLicense"></a>
+<a href="http://commitizen.github.io/cz-cli/"><img src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" alt="Commitizen friendly"></a>
+<a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="semantic-release"></a></p>
+
+<a href="#description" id="description" style="color: inherit; text-decoration: none;">
+  <h2>Description</h2>
+</a>
+<p><code>@steem-monsters/atom</code> provides a data type called <code>Atom</code>s and a few functions for working with <code>Atom</code>s. It is heavily inspired by <code>atom</code>s in Clojure(Script). While the full power of Clojure <code>atom</code>s cannot be experienced in JavaScript&#39;s single-threaded runtime, <code>Atom</code>s do still offer similar benefits due to the highly asynchronous and event-driven nature of JavaScript.</p>
+<p>Atoms provide a predictable way to manage state shared by multiple components of a
+program as that state changes over time. They are particularly useful in the functional and reactive programming paradigms, where most components of a program are pure functions operating on immutable data. <code>Atoms</code> provide a controlled mechanism for mutability that lets multiple components access and update the same value without risking mutating another component&#39;s reference to it in the middle of some process or asynchronous operation.</p>
+
+<a href="#put-your-state-in-an-atom" id="put-your-state-in-an-atom" style="color: inherit; text-decoration: none;">
+  <h3>Put your state in an <code>Atom</code>:</h3>
+</a>
+<pre><code class="language-ts"><span class="hl-7">import</span><span class="hl-1"> { </span><span class="hl-3">Atom</span><span class="hl-1"> } </span><span class="hl-7">from</span><span class="hl-1"> </span><span class="hl-8">&quot;@steem-monsters/atom&quot;</span><span class="hl-1">;</span><br/><br/><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">appState</span><span class="hl-1"> = </span><span class="hl-3">Atom</span><span class="hl-1">.</span><span class="hl-4">of</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-3">color:</span><span class="hl-1"> </span><span class="hl-8">&quot;blue&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-3">userId:</span><span class="hl-1"> </span><span class="hl-5">1</span><br/><span class="hl-1">});</span>
+</code></pre>
+
+<a href="#read-state-with-deref" id="read-state-with-deref" style="color: inherit; text-decoration: none;">
+  <h3>Read state with <code>deref</code></h3>
+</a>
+<p>You can&#39;t inspect <code>Atom</code> state directly, you have to <code>deref</code>erence it, like this:</p>
+<pre><code class="language-js"><span class="hl-7">import</span><span class="hl-1"> { </span><span class="hl-3">deref</span><span class="hl-1"> } </span><span class="hl-7">from</span><span class="hl-1"> </span><span class="hl-8">&quot;@steem-monsters/atom&quot;</span><span class="hl-1">;</span><br/><br/><span class="hl-0">const</span><span class="hl-1"> { </span><span class="hl-2">color</span><span class="hl-1"> } = </span><span class="hl-4">deref</span><span class="hl-1">(</span><span class="hl-3">appState</span><span class="hl-1">);</span>
+</code></pre>
+
+<a href="#update-state-with-swap" id="update-state-with-swap" style="color: inherit; text-decoration: none;">
+  <h3>Update state with <code>swap</code></h3>
+</a>
+<p>You can&#39;t modify an <code>Atom</code> directly. The main way to update state is with <code>swap</code>. Here&#39;s its call signature:</p>
+<pre><code class="language-ts"><span class="hl-0">function</span><span class="hl-1"> </span><span class="hl-4">swap</span><span class="hl-1">&lt;</span><span class="hl-6">S</span><span class="hl-1">&gt;(</span><br/><span class="hl-1">  </span><span class="hl-3">atom</span><span class="hl-1">: </span><span class="hl-6">Atom</span><span class="hl-1">&lt;</span><span class="hl-6">S</span><span class="hl-1">&gt;, </span><br/><span class="hl-1">  </span><span class="hl-4">updateFn</span><span class="hl-1">: (</span><span class="hl-3">state</span><span class="hl-1">: </span><span class="hl-6">DeepImmutable</span><span class="hl-1">&lt;</span><span class="hl-6">S</span><span class="hl-1">&gt;) </span><span class="hl-0">=&gt;</span><span class="hl-1"> </span><span class="hl-6">S</span><br/><span class="hl-1">): </span><span class="hl-6">void</span><span class="hl-1">;</span>
+</code></pre>
+<p><code>updateFn</code> is applied to <code>atom</code>&#39;s state and the return value is set as <code>atom</code>&#39;s new state. There are just two simple rules for <code>updateFn</code>:</p>
+<ol>
+<li>it must return a value of the same type/interface as the previous state</li>
+<li>it must not mutate the previous state</li>
+</ol>
+<p>To illustrate, here is how we might update <code>appState</code>&#39;s color:</p>
+<pre><code class="language-js"><span class="hl-7">import</span><span class="hl-1"> { </span><span class="hl-3">swap</span><span class="hl-1"> } </span><span class="hl-7">from</span><span class="hl-1"> </span><span class="hl-8">&quot;@steem-monsters/atom&quot;</span><span class="hl-1">;</span><br/><br/><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-4">setColor</span><span class="hl-1"> = </span><span class="hl-3">color</span><span class="hl-1"> </span><span class="hl-0">=&gt;</span><br/><span class="hl-1">  </span><span class="hl-4">swap</span><span class="hl-1">(</span><span class="hl-3">appState</span><span class="hl-1">, </span><span class="hl-3">state</span><span class="hl-1"> </span><span class="hl-0">=&gt;</span><span class="hl-1"> ({</span><br/><span class="hl-1">    ...</span><span class="hl-3">state</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-3">color:</span><span class="hl-1"> </span><span class="hl-3">color</span><br/><span class="hl-1">  }));</span>
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> Our <code>updateFn</code> is <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax">spread</a>ing the old state onto a new object before overriding <code>color</code>. This is an easy way to obey the rules of <code>updateFn</code>. If manually spreading values seems tedious, there are many libraries that offer convenient functions for operating on JS data structures in an immutable manner, e.g. see <a href="https://ramdajs.com/">ramda</a>, <a href="https://sanctuary.js.org/">sanctuary</a>, <a href="https://evilsoft.github.io/crocks/docs/">crocks</a>, or (for the wizards among us) <a href="https://gcanti.github.io/fp-ts/">fp-ts</a>.</p>
+</blockquote>
+
+<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+  <h2>Installation</h2>
+</a>
+<p><strong>NPM</strong>: <code>npm install --save @steem-monsters/atom</code></p>
+<p><strong>Yarn</strong>: <code>yarn add @steem-monsters/atom</code></p>
+<p><strong>CDN</strong>: <code>&lt;script src=&quot;https://unpkg.com/@steem-monsters/atom&quot; /&gt;</code></p>
+<ul>
+<li>Exposed on the global object, like so: <code>window[&quot;@steem-monsters/atom&quot;]</code></li>
+</ul>
+
+<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+  <h2>Usage</h2>
+</a>
+<p><strong>ES6 <code>import</code></strong></p>
+<pre><code class="language-js"><span class="hl-7">import</span><span class="hl-1"> { </span><span class="hl-3">Atom</span><span class="hl-1">, </span><span class="hl-3">deref</span><span class="hl-1">, </span><span class="hl-3">set</span><span class="hl-1">, </span><span class="hl-3">swap</span><span class="hl-1"> } </span><span class="hl-7">from</span><span class="hl-1"> </span><span class="hl-8">&quot;@steem-monsters/atom&quot;</span><span class="hl-1">;</span>
+</code></pre>
+<p><strong>CommonJS <code>require</code></strong></p>
+<pre><code class="language-js"><span class="hl-0">const</span><span class="hl-1"> { </span><span class="hl-2">Atom</span><span class="hl-1">, </span><span class="hl-2">deref</span><span class="hl-1">, </span><span class="hl-2">set</span><span class="hl-1">, </span><span class="hl-2">swap</span><span class="hl-1"> } = </span><span class="hl-4">require</span><span class="hl-1">(</span><span class="hl-8">&quot;@steem-monsters/atom&quot;</span><span class="hl-1">);</span>
+</code></pre>
+<p><strong>Web <code>&lt;script /&gt;</code> tag</strong></p>
+<pre><code class="language-js"><span class="hl-0">const</span><span class="hl-1"> { </span><span class="hl-2">Atom</span><span class="hl-1">, </span><span class="hl-2">deref</span><span class="hl-1">, </span><span class="hl-2">set</span><span class="hl-1">, </span><span class="hl-2">swap</span><span class="hl-1"> } = </span><span class="hl-3">window</span><span class="hl-1">[</span><span class="hl-8">&quot;@steem-monsters/atom&quot;</span><span class="hl-1">];</span>
+</code></pre>
+
+<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
+  <h2>Documentation</h2>
+</a>
+<p><a href="https://steem-monsters.github.io/atom/">You can find API docs for <code>@steem-monsters/atom</code> here</a></p>
+
+<a href="#contributing--feedback" id="contributing--feedback" style="color: inherit; text-decoration: none;">
+  <h2>Contributing / Feedback</h2>
+</a>
+<p>Please open an issue if you have any questions, suggestions for
+improvements/features, or want to submit a PR for a bug-fix (please include
+tests if applicable).</p>
+</div></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class="current"><a href="modules.html">Exports</a></li></ul></nav><nav class="tsd-navigation secondary menu-sticky"><ul><li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/Atom.html" class="tsd-kind-icon">Atom</a></li><li class="tsd-kind-interface tsd-has-type-parameter"><a href="interfaces/AtomConstructorOptions.html" class="tsd-kind-icon">Atom<wbr/>Constructor<wbr/>Options</a></li><li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="modules.html#AtomState" class="tsd-kind-icon">Atom<wbr/>State</a></li><li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="modules.html#DeepImmutable" class="tsd-kind-icon">Deep<wbr/>Immutable</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#addChangeHandler" class="tsd-kind-icon">add<wbr/>Change<wbr/>Handler</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#deref" class="tsd-kind-icon">deref</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#getValidator" class="tsd-kind-icon">get<wbr/>Validator</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#removeChangeHandler" class="tsd-kind-icon">remove<wbr/>Change<wbr/>Handler</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#set" class="tsd-kind-icon">set</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#setValidator" class="tsd-kind-icon">set<wbr/>Validator</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#swap" class="tsd-kind-icon">swap</a></li></ul></nav></div></div></div><footer class=""><div class="container"><h2>Legend</h2><div class="tsd-legend-group"><ul class="tsd-legend"><li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li></ul></div><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="overlay"></div><script src="assets/main.js"></script></body></html>
