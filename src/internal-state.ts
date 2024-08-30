@@ -67,3 +67,10 @@ export function _runChangeHandlers<S>(atom: Atom<S>, previous: S, current: S) {
     }
   });
 }
+
+/** @ignore */
+export function _dispose(atom: Atom<any>) {
+  delete stateByAtomId[atom["$$id"]];
+  delete validatorByAtomId[atom["$$id"]];
+  delete changeHandlersByAtomId[atom["$$id"]];
+}
